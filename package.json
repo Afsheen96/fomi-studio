@@ -1,0 +1,19 @@
+{
+  "name": "fomi-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FOMI Frontend assessment – AI image generation workspace built with Next.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^15.5.7",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
