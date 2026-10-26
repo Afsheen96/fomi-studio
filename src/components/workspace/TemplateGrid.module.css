@@ -1,0 +1,122 @@
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  padding: 6px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  text-align: left;
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.thumb img {
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+
+.card:hover .thumb img {
+  transform: scale(1.05);
+}
+
+.use {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  font-size: 12px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.card:hover .use,
+.card:focus-visible .use {
+  opacity: 1;
+  transform: none;
+}
+
+.info {
+  display: grid;
+  gap: 2px;
+  padding: 0 4px 4px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.meta {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.skeleton {
+  aspect-ratio: 4 / 3.6;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, var(--bg-elev) 0%, var(--bg-elev-2) 40%, var(--bg-elev) 80%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+@media (hover: none) {
+  .use {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* On phones the "start creating" row scrolls sideways inside its own track (the page itself never does). */
+@media (max-width: 767px) {
+  .row {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 62%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .row > li {
+    scroll-snap-align: start;
+  }
+
+  .grid:not(.row) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}

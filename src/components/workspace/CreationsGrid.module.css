@@ -1,0 +1,132 @@
+/* Masonry via CSS columns: keeps each creation at its true aspect ratio. */
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 4 240px;
+  column-gap: 12px;
+}
+
+.dense {
+  columns: 6 160px;
+  column-gap: 8px;
+}
+
+.item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+}
+
+.dense .item {
+  margin-bottom: 8px;
+}
+
+.skeleton,
+.pending {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, var(--bg-elev) 0%, var(--bg-elev-2) 40%, var(--bg-elev) 80%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+.pending {
+  position: relative;
+  margin-bottom: 0;
+  border: 1px solid var(--border-strong);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(139, 124, 255, 0.22), transparent 55%),
+    radial-gradient(circle at 70% 70%, rgba(244, 114, 182, 0.18), transparent 55%),
+    linear-gradient(90deg, var(--bg-elev) 0%, var(--bg-elev-2) 40%, var(--bg-elev) 80%);
+  background-size: 100% 100%, 100% 100%, 800px 100%;
+  animation: shimmer 1.6s linear infinite, fade-up 0.3s var(--ease) both;
+}
+
+.pendingLabel {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(139, 124, 255, 0.6);
+  animation: pulse 1.4s var(--ease) infinite;
+}
+
+@keyframes pulse {
+  70% { box-shadow: 0 0 0 10px rgba(139, 124, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(139, 124, 255, 0); }
+}
+
+.empty {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 48px 20px;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border-strong);
+  text-align: center;
+}
+
+.emptyIcon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 6px;
+  border-radius: 50%;
+  background: var(--bg-elev-2);
+  color: var(--text-2);
+}
+
+.emptyTitle {
+  margin: 0;
+  font-weight: 600;
+}
+
+.emptyBody {
+  margin: 0;
+  max-width: 340px;
+  color: var(--text-3);
+  font-size: 13px;
+}
+
+.emptyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 99px;
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+@media (max-width: 767px) {
+  .grid {
+    columns: 2;
+    column-gap: 8px;
+  }
+
+  .dense {
+    columns: 3;
+    column-gap: 6px;
+  }
+
+  .item {
+    margin-bottom: 8px;
+  }
+}

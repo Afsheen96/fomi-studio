@@ -1,0 +1,312 @@
+.hero {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: 28px 24px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(600px 220px at 50% 0%, rgba(139, 124, 255, 0.16), transparent 70%),
+    var(--bg-elev);
+  overflow: hidden;
+}
+
+.dismiss {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--text-3);
+}
+
+.dismiss:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.intro {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.badge {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 4px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent-2);
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.stage {
+  width: 100%;
+  max-width: 560px;
+}
+
+.slide {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  animation: fade-up 0.3s var(--ease);
+}
+
+.visual {
+  height: 140px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  padding: 12px;
+  overflow: hidden;
+}
+
+.caption {
+  display: grid;
+  gap: 4px;
+}
+
+.stepNum {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.stepTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.stepBody {
+  margin: 0;
+  color: var(--text-2);
+  font-size: 13px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+}
+
+.spacer {
+  display: block;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navBtn {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  color: var(--text-2);
+  transition: color 0.15s var(--ease), border-color 0.15s var(--ease), transform 0.15s var(--ease);
+}
+
+.navBtn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.navBtn:active {
+  transform: scale(0.94);
+}
+
+.counter {
+  min-width: 42px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.fullBtn {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 99px;
+  background: var(--bg-hover);
+  border: 1px solid var(--border-strong);
+  font-size: 12px;
+  transition: border-color 0.15s var(--ease);
+}
+
+.fullBtn:hover {
+  border-color: var(--accent);
+}
+
+/* --- step illustrations --- */
+.mockList {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+}
+
+.mockRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 7px;
+  font-size: 12px;
+  color: var(--text-2);
+  background: var(--bg);
+}
+
+.mockRow svg {
+  margin-left: auto;
+  color: var(--accent-2);
+}
+
+.mockRowActive {
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.mockDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--pink));
+}
+
+.mockPrompt {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: var(--bg);
+  font-size: 12px;
+}
+
+.caret {
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  margin-left: 2px;
+  vertical-align: -2px;
+  background: var(--text);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.mockPromptBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-3);
+  font-size: 11px;
+}
+
+.mockToggle {
+  width: 20px;
+  height: 11px;
+  border-radius: 99px;
+  background: var(--accent);
+}
+
+.mockRefs,
+.mockGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.mockGrid {
+  grid-template-columns: repeat(2, 1fr);
+  width: 120px;
+}
+
+.mockRefImg,
+.mockGridCell {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.mockRefImg img,
+.mockGridCell img {
+  object-fit: cover;
+}
+
+.mockRefAdd {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 7px;
+  border: 1px dashed var(--accent);
+  color: var(--accent-2);
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 22px 14px 14px;
+  }
+
+  .slide {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .visual {
+    height: 120px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr auto;
+  }
+
+  .spacer {
+    display: none;
+  }
+}
