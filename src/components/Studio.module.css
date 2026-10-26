@@ -1,0 +1,67 @@
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) var(--panel-w) minmax(0, 1fr);
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.panelWrap {
+  position: relative;
+  min-height: 0;
+  display: flex;
+}
+
+.scrim {
+  display: none;
+}
+
+/* Tablet: the nav collapses to an icon rail so the canvas keeps its room. */
+@media (max-width: 1180px) {
+  .app {
+    --sidebar-w: 72px;
+    --panel-w: 296px;
+  }
+}
+
+/* Mobile: the generator becomes a bottom sheet and navigation moves to the bottom. */
+@media (max-width: 767px) {
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .panelWrap {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    align-items: flex-end;
+    pointer-events: none;
+  }
+
+  .scrim {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    transition: opacity 0.25s var(--ease);
+  }
+
+  .panelWrap > :last-child {
+    transform: translateY(102%);
+    transition: transform 0.32s var(--ease);
+  }
+
+  .sheetOpen {
+    pointer-events: auto;
+  }
+
+  .sheetOpen .scrim {
+    opacity: 1;
+  }
+
+  .sheetOpen > :last-child {
+    transform: none;
+  }
+}
