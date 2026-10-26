@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Icon from "@/components/ui/Icon";
 import { MODELS } from "@/lib/mockData";
-import { timeAgo } from "@/lib/format";
+import TimeAgo from "@/components/ui/TimeAgo";
 import styles from "./Lightbox.module.css";
 
 export default function Lightbox({ items, index, onNavigate, onClose, onRemix, onFavorite, onDelete }) {
@@ -123,7 +123,7 @@ export default function Lightbox({ items, index, onNavigate, onClose, onRemix, o
             </div>
             <div>
               <dt>Created</dt>
-              <dd>{timeAgo(item.createdAt)}</dd>
+              <dd><TimeAgo iso={item.createdAt} /></dd>
             </div>
           </dl>
 

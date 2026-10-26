@@ -3,7 +3,7 @@
 import { memo, useRef, useState } from "react";
 import Image from "next/image";
 import Icon from "@/components/ui/Icon";
-import { timeAgo } from "@/lib/format";
+import TimeAgo from "@/components/ui/TimeAgo";
 import styles from "./MediaCard.module.css";
 
 function MediaCard({ item, priority, onOpen, onFavorite, onRemix }) {
@@ -70,7 +70,7 @@ function MediaCard({ item, priority, onOpen, onFavorite, onRemix }) {
       <div className={styles.overlay}>
         <p className={styles.prompt}>{item.prompt}</p>
         <div className={styles.meta}>
-          <span className={styles.time}>{timeAgo(item.createdAt)}</span>
+          <span className={styles.time}><TimeAgo iso={item.createdAt} /></span>
           <div className={styles.actions}>
             <button
               type="button"
