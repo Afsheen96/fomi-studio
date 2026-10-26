@@ -4,7 +4,7 @@ import { useState } from "react";
 import Icon from "@/components/ui/Icon";
 import { MODELS } from "@/lib/mockData";
 import { diffVersions, lineage } from "@/lib/diff";
-import { timeAgo } from "@/lib/format";
+import TimeAgo from "@/components/ui/TimeAgo";
 import styles from "./Inspector.module.css";
 
 const modelName = (id) => MODELS.find((m) => m.id === id)?.name || id;
@@ -36,7 +36,7 @@ export default function Inspector({ version, parent, versions, versionNumber, on
       <div className={styles.head}>
         <div>
           <h2 className={styles.title}>v{versionNumber(version.id)}</h2>
-          <p className={styles.time}>{timeAgo(version.createdAt)}</p>
+          <p className={styles.time}><TimeAgo iso={version.createdAt} /></p>
         </div>
         <button
           type="button"

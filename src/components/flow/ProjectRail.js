@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Icon from "@/components/ui/Icon";
-import { timeAgo } from "@/lib/format";
+import TimeAgo from "@/components/ui/TimeAgo";
 import styles from "./ProjectRail.module.css";
 
 export default function ProjectRail({ projects, activeId, onOpen, onCreate }) {
@@ -35,7 +35,7 @@ export default function ProjectRail({ projects, activeId, onOpen, onCreate }) {
                 <span className={styles.text}>
                   <span className={styles.name}>{p.name}</span>
                   <span className={styles.sub}>
-                    {p.versions.length} versions · {timeAgo(p.updatedAt)}
+                    {p.versions.length} {p.versions.length === 1 ? "version" : "versions"} · <TimeAgo iso={p.updatedAt} />
                   </span>
                 </span>
               </button>
