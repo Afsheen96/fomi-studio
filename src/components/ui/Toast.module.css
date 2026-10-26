@@ -1,0 +1,68 @@
+.region {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 80;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 32px);
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 8px 8px 10px;
+  border-radius: 99px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elev-2);
+  box-shadow: var(--shadow);
+  font-size: 13px;
+  animation: fade-up 0.25s var(--ease);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-2);
+}
+
+.success .icon {
+  background: rgba(52, 211, 153, 0.15);
+  color: var(--success);
+}
+
+.danger .icon {
+  background: rgba(248, 113, 113, 0.15);
+  color: var(--danger);
+}
+
+.warning .icon {
+  background: rgba(251, 191, 36, 0.15);
+  color: var(--warning);
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: var(--text-3);
+}
+
+.close:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+@media (max-width: 767px) {
+  .region {
+    bottom: calc(132px + env(safe-area-inset-bottom));
+  }
+}
