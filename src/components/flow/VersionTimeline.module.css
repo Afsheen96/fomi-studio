@@ -1,0 +1,137 @@
+.wrap {
+  padding: 14px 20px 0;
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.hint kbd {
+  padding: 0 5px;
+  border-radius: 4px;
+  border: 1px solid var(--border-strong);
+  font-family: inherit;
+}
+
+.track {
+  list-style: none;
+  margin: 0;
+  padding: 2px 2px 8px;
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.node {
+  position: relative;
+  flex: none;
+}
+
+/* the little line that joins versions together */
+.node + .node::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: -18px;
+  width: 18px;
+  height: 2px;
+  background: var(--border-strong);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px 5px 5px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  text-align: left;
+  transition: border-color 0.15s var(--ease), transform 0.15s var(--ease);
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.thumb {
+  position: relative;
+  display: block;
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-elev-2);
+}
+
+.thumb img {
+  object-fit: cover;
+}
+
+.meta {
+  display: grid;
+  gap: 1px;
+}
+
+.num {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.star {
+  color: var(--pink);
+}
+
+.model,
+.branch {
+  font-size: 11px;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.branch {
+  color: var(--warning);
+}
+
+.ghost .thumb {
+  background: linear-gradient(90deg, var(--bg-elev) 0%, var(--bg-hover) 40%, var(--bg-elev) 80%);
+  background-size: 300px 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+@media (max-width: 767px) {
+  .wrap {
+    padding: 12px 12px 0;
+  }
+
+  .hint {
+    display: none;
+  }
+}

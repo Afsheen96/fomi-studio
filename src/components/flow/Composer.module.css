@@ -1,0 +1,149 @@
+.composer {
+  padding: 12px 20px 18px;
+}
+
+.context {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.context strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.box {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elev);
+  box-shadow: var(--shadow);
+  transition: border-color 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+
+.box:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow);
+}
+
+.box textarea {
+  display: block;
+  width: 100%;
+  padding: 12px 14px 4px;
+  border: 0;
+  background: transparent;
+  resize: none;
+  line-height: 1.5;
+}
+
+.box textarea:focus-visible {
+  outline: none;
+}
+
+.box textarea::placeholder {
+  color: var(--text-3);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 8px 8px 10px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.chip select {
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 99px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.chip select:hover {
+  border-color: var(--accent);
+}
+
+.reset {
+  height: 30px;
+  padding: 0 10px;
+  font-size: 12px;
+  color: var(--accent-2);
+}
+
+.reset:hover {
+  text-decoration: underline;
+}
+
+.go {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 99px;
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 600;
+  transition: transform 0.15s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.go:hover:not(:disabled) {
+  box-shadow: 0 6px 22px rgba(139, 124, 255, 0.35);
+}
+
+.go:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.go:disabled {
+  opacity: 0.7;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(11, 11, 14, 0.25);
+  border-top-color: var(--bg);
+  animation: spin 0.8s linear infinite;
+}
+
+.error {
+  margin: 6px 4px 0;
+  font-size: 12px;
+  color: var(--danger);
+}
+
+@media (max-width: 767px) {
+  .composer {
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    padding: 10px 12px calc(12px + env(safe-area-inset-bottom));
+    background: linear-gradient(to top, var(--bg) 75%, rgba(11, 11, 14, 0));
+  }
+
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .go {
+    width: 100%;
+    justify-content: center;
+  }
+}

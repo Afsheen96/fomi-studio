@@ -1,0 +1,167 @@
+.app {
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr) 300px;
+  grid-template-rows: 52px minmax(0, 1fr);
+  grid-template-areas:
+    "top top top"
+    "rail center inspector";
+  height: 100vh;
+  height: 100dvh;
+  background: radial-gradient(900px 400px at 50% -10%, rgba(139, 124, 255, 0.08), transparent 60%), var(--bg);
+}
+
+.topbar {
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.topLeft,
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.back:hover {
+  color: var(--text);
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border-strong);
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, var(--accent), var(--pink));
+  color: #fff;
+}
+
+.brand {
+  font-weight: 600;
+}
+
+.beta {
+  padding: 1px 7px;
+  border-radius: 99px;
+  border: 1px solid var(--border-strong);
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.meta {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b, #ec4899);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.mobileProject {
+  display: none;
+}
+
+.center {
+  grid-area: center;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+@media (min-width: 1700px) {
+  .app {
+    grid-template-columns: 280px minmax(0, 1fr) 340px;
+  }
+}
+
+/* Tablet & mobile: one column that scrolls; projects move into a dropdown */
+@media (max-width: 1023px) {
+  .app {
+    display: block;
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  :global(body):has(.app) {
+    overflow: auto;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 52px;
+    background: var(--bg);
+  }
+
+  .mobileProject {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 260px;
+  }
+
+  .mobileProject select {
+    appearance: none;
+    width: 100%;
+    height: 34px;
+    padding: 0 30px 0 12px;
+    border-radius: 99px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-elev);
+    font-size: 13px;
+  }
+
+  .mobileProject svg {
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+    color: var(--text-3);
+  }
+
+  .center {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .back span,
+  .divider,
+  .logo,
+  .beta,
+  .meta {
+    display: none;
+  }
+
+  .topbar {
+    padding: 0 12px;
+  }
+}
