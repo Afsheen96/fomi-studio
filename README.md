@@ -4,6 +4,26 @@ My submission for the FOMI Frontend Developer assessment. It builds the Image Ge
 
 **Built by:** Afsheen Kiran
 
+The repo has two parts:
+
+- **Part A, `/`:** the mockup, rebuilt as a working, responsive page.
+- **Part B, `/flow`, "Fomi Flow":** my own redesign of the image workspace. It's for professionals who come back to the same project every day.
+
+## Part B: Fomi Flow (my redesign)
+
+**The problem:** most AI image tools show results as an endless feed. Professionals iterate on one idea many times. Once the feed grows, they can't find the good version from yesterday, can't see what changed between two tries, and lose the client's feedback.
+
+**The idea:** every generation is a **version** inside a **project**, not a feed item.
+
+- **Version history strip.** Each new image becomes v1, v2, v3 and so on. If you go back to v2 and change it, the new image shows "↳ from v2", so you can see where you branched off.
+- **Compare slider.** Drag to compare any version with the one it came from (keyboard: `C`, `←` and `→`).
+- **"What changed"**: the app works out which prompt words were added or removed, and any model or ratio change, between a version and the one it came from.
+- **Path**: shows the chain from v1 to the current version (v1 → v2 → v4). Click any step to jump there.
+- **The prompt bar starts filled with the selected version's prompt.** You edit words instead of starting again, and it tells you "Editing from v4, this will create v5".
+- **Notes and stars** on each version, to remember client feedback.
+
+On tablet and phone, the projects list becomes a dropdown and the page becomes one column. The prompt bar stays at the bottom where your thumb can reach it.
+
 ## Tech stack
 
 - **Next.js 15** (App Router), **JavaScript**, **React 19**
@@ -56,14 +76,15 @@ The mock media in `public/mock` was generated with code (Python and ffmpeg), so 
 
 ```
 src/
-  app/            layout, page, global styles, API routes
+  app/            layout, page, global styles, API routes, flow/ (Part B page)
   components/
     layout/       Sidebar, MobileNav
     generator/    GeneratorPanel, ModelSelect, References, PromptBox
     workspace/    Workspace, TutorialCarousel, CreationsGrid, MediaCard, TemplateGrid, Academy, Lightbox
+    flow/         Part B: FlowWorkspace, ProjectRail, Stage, VersionTimeline, Composer, Inspector
     ui/           Icon, Toast
   hooks/          useGenerations, useMediaQuery
-  lib/            mock data, API client, formatting
+  lib/            mock data, flow data, version diff, API client, formatting
 ```
 
 ## Keyboard shortcuts
