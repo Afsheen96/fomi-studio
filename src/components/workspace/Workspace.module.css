@@ -52,6 +52,35 @@
   box-shadow: inset 0 0 0 1px var(--border-strong);
 }
 
+.flowLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  height: 32px;
+  padding: 0 6px 0 12px;
+  border-radius: 99px;
+  border: 1px solid rgba(139, 124, 255, 0.45);
+  background: var(--accent-soft);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: border-color 0.15s var(--ease), background 0.15s var(--ease);
+}
+
+.flowLink:hover {
+  border-color: var(--accent);
+  background: rgba(139, 124, 255, 0.22);
+}
+
+.flowBadge {
+  padding: 2px 7px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.35);
+  font-size: 10px;
+  color: var(--accent-2);
+}
+
 .tools {
   display: flex;
   align-items: center;
@@ -165,6 +194,16 @@
   }
 }
 
+@media (max-width: 1180px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .flowBadge {
+    display: none;
+  }
+}
+
 @media (max-width: 1023px) {
   .header {
     flex-wrap: wrap;
@@ -177,6 +216,10 @@
 }
 
 @media (max-width: 767px) {
+  .flowBadge {
+    display: none;
+  }
+
   .header {
     padding: 10px 12px 8px;
     gap: 8px;

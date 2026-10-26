@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import Icon from "@/components/ui/Icon";
 import TutorialCarousel from "./TutorialCarousel";
 import CreationsGrid from "./CreationsGrid";
@@ -82,6 +83,12 @@ export default function Workspace({
             </button>
           ))}
         </div>
+
+        <Link href="/flow" className={styles.flowLink}>
+          <Icon name="sparkles" size={13} />
+          Try Flow view
+          <span className={styles.flowBadge}>my redesign</span>
+        </Link>
 
         {tab === "creations" && (
           <div className={styles.tools}>
