@@ -41,7 +41,11 @@ export async function POST(request) {
 
   await wait(type === "video" ? 2600 : 1600 + Math.random() * 900);
 
-  const library = type === "video" ? VIDEO_LIBRARY : IMAGE_LIBRARY;
+  // "avoid" lets the client ask for something different from the image it's editing
+  const avoid = Array.isArray(body?.avoid) ? body.avoid : [];
+  const fullLibrary = type === "video" ? VIDEO_LIBRARY : IMAGE_LIBRARY;
+  const filtered = fullLibrary.filter((m) => !avoid.includes(m.src));
+  const library = filtered.length ? filtered : fullLibrary;
   const now = Date.now();
   const items = pickMedia(prompt, library, type === "video" ? 1 : count).map((media, i) => ({
     id: `gen-${now}-${i}`,
