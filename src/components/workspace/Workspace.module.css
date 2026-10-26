@@ -18,6 +18,8 @@
 
 .tabs {
   display: flex;
+  flex-shrink: 0;
+  max-width: 100%;
   gap: 4px;
   min-width: 0;
   overflow-x: auto;
@@ -194,7 +196,7 @@
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1440px) {
   .header {
     flex-wrap: wrap;
   }
